@@ -41,6 +41,11 @@ namespace BusinessLogic.Services.Implementations
                 .ToList();
         }
 
+        public void Report4()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<PurchaseOrderDto> Report5()
         {
             return _poList
