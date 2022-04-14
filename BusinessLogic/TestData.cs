@@ -61,5 +61,7 @@ namespace BusinessLogic
         }
 
         public static List<PurchaseOrder> PurchaseOrderList = new();
+        public static Cart Cart = new();
+        public static List<Order> OrderList = new();
     }
 }

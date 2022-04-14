@@ -14,5 +14,6 @@ namespace BusinessLogic.Services.Abstractions
         public List<PurchaseOrderDto> Report6();
         public List<PurchaseOrderDto> Report7();
         public ProductReportDto Report8();
+        public decimal ClientReport1();
     }
 }

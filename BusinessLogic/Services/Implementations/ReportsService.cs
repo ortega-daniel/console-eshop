@@ -12,6 +12,13 @@ namespace BusinessLogic.Services.Implementations
     {
         private List<Product> _productList = TestData.ProductList;
         private List<PurchaseOrder> _poList = TestData.PurchaseOrderList;
+        private List<Order> _orderList = TestData.OrderList;
+
+        public decimal ClientReport1()
+        {
+            return _orderList
+                .Sum(order => order.Total);
+        }
 
         public List<ProductReportDto> Report1()
         {

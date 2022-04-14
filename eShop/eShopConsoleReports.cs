@@ -57,6 +57,27 @@ namespace eShop
             return true;
         }
 
+        private bool ClientReportsMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("1) Total gastado");
+            Console.WriteLine("0) Go Back");
+
+            Console.Write("\nSelect an option:");
+            switch (Console.ReadLine())
+            {
+                case "0":
+                    return false;
+                case "1":
+                    ClientReport1();
+                    break;
+                default:
+                    break;
+            }
+
+            return true;
+        }
+
         private void Report1()
         {
             _reportsService.Report1()
@@ -155,6 +176,16 @@ namespace eShop
             Console.WriteLine($"{data.Name} - {data.Stock} total units from POs");
 
             Console.WriteLine("Press any key to continue...");
+            Console.ReadLine();
+        }
+
+        private void ClientReport1() 
+        {
+            var data = _reportsService.ClientReport1();
+
+            Console.WriteLine($"Total amount spent: {data:c}");
+
+            Console.WriteLine("\nPress any key to continue...");
             Console.ReadLine();
         }
     }
