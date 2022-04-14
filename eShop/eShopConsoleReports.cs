@@ -115,19 +115,17 @@ namespace eShop
 
         private void Report4()
         {
-            var result = _productService.GetProducts()
-                .GroupBy(p => new { Department = p.Subdepartment.Department, Subdepartment = p.Subdepartment.Name })
-                .GroupBy(group => group.Key.Department);
+            var data = _reportsService.Report4();
 
-            foreach (var department in result)
+            foreach (var department in data)
             {
-                Console.WriteLine($"- Department: {department.Key}");
-                foreach (var subdepartment in department)
+                Console.WriteLine($"- {department.Department.Name}");
+                foreach (var subdepartment in department.Child)
                 {
-                    Console.WriteLine($"\t- Subdepartment: {subdepartment.Key.Subdepartment}");
-                    foreach (var product in subdepartment)
+                    Console.WriteLine($"- {subdepartment.Subdepartment.Name}");
+                    foreach (var product in subdepartment.Products)
                     {
-                        Console.WriteLine($"\t\t- {product.Name}");
+                        Console.WriteLine($"- {product.Name}");
                     }
                 }
             }

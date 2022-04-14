@@ -48,9 +48,14 @@ namespace BusinessLogic.Services.Implementations
                 .ToList();
         }
 
-        public void Report4()
+        public List<DepartmentHierarchyDto> Report4()
         {
-            throw new NotImplementedException();
+            return _productList
+                .GroupBy(p => p.Subdepartment)
+                .Select(g => new ProductsBySubdepartmentDto { Subdepartment = g.Key, Products = g.ToList() })
+                .GroupBy(a => a.Subdepartment.Department)
+                .Select(g => new DepartmentHierarchyDto { Department = g.Key, Child = g.ToList() })
+                .ToList();
         }
 
         public List<PurchaseOrderDto> Report5()

@@ -10,7 +10,7 @@ namespace BusinessLogic.Services.Abstractions
         public List<ProductReportDto> Report2();
         public List<BrandReportDto> Report3();
         public List<PurchaseOrderDto> Report5();
-        public void Report4();
+        public List<DepartmentHierarchyDto> Report4();
         public List<PurchaseOrderDto> Report6();
         public List<PurchaseOrderDto> Report7();
         public ProductReportDto Report8();
